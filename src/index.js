@@ -6,6 +6,7 @@ async function search(event) {
   let tempElement = document.querySelector(".current-temperature-value");
   let humidityElement = document.querySelector("#humidity-value");
   let windSpeedElement = document.querySelector("#wind-speed");
+  let iconElement = document.querySelector(".current-temperature-icon");
 
   let apiKey = "2a830c1f5845c71a9b8c68a49820t94o";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInputElement.value}&key=${apiKey}&units=metric`;
@@ -17,8 +18,7 @@ async function search(event) {
     tempElement.innerHTML = Math.round(response.data.temperature.current);
     humidityElement.innerHTML = response.data.temperature.humidity;
     windSpeedElement.innerHTML = response.data.wind.speed;
-
-    console.log(response.data.temperature.current);
+    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }
@@ -53,10 +53,7 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
-
-let currentDateELement = document.querySelector("#current-date");
+let currentDateElement = document.querySelector("#current-date");
 let currentDate = new Date();
 
-currentDateELement.innerHTML = formatDate(currentDate);
+currentDateElement.innerHTML = formatDate(currentDate);
