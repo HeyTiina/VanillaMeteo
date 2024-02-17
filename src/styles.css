@@ -58,7 +58,7 @@ main {
 .current-temperature {
   font-size: 48px;
   padding-right: 60px;
-  padding-top: 20px;
+
 }
 
 .current-weather {
@@ -95,6 +95,7 @@ main {
   font-size: 80px;
   font-weight: bold;
   color: #9ccadf;
+  margin-bottom: 50px;
 }
 
 .current-temperature-unit {
