@@ -7,6 +7,7 @@ async function search(event) {
   let humidityElement = document.querySelector("#humidity-value");
   let windSpeedElement = document.querySelector("#wind-speed");
   let iconElement = document.querySelector(".current-temperature-icon");
+  let conditionElement = document.querySelector("#current-condition");
 
   let apiKey = "2a830c1f5845c71a9b8c68a49820t94o";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInputElement.value}&key=${apiKey}&units=metric`;
@@ -19,6 +20,7 @@ async function search(event) {
     humidityElement.innerHTML = response.data.temperature.humidity;
     windSpeedElement.innerHTML = response.data.wind.speed;
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+conditionElement.innerHTML = ` ${response.data.condition.description}`;
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }
