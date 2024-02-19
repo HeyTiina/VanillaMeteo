@@ -13,7 +13,6 @@ async function search(event) {
   let forecastMaxElement = document.querySelector(".forecast-max");
   let forecastMinElement = document.querySelector(".forecast-min");
 
-
   let apiKey = "2a830c1f5845c71a9b8c68a49820t94o";
   let tempApiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInputElement.value}&key=${apiKey}&units=metric`;
   let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${searchInputElement.value}&key=${apiKey}&units=metric`;
@@ -33,17 +32,8 @@ async function search(event) {
 
   try {
     let response = await axios.get(forecastApiUrl);
-
-    //forecastDateElement.innerHTML = response.data.daily;
-    forecastIconElement.innerHTML = `<img src="${response.data.daily.condition.icon_url}"/>`;
-    forecastMaxElement.innerHTML = Math.round(
-      response.data.daily.temperature.maximum
-    );
-    forecastMinElement.innerHTML = Math.round(
-      response.data.daily.temperature.minimum
-    );
-
-
+    updateForecastWeather(response);
+    displayForecast();
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }
@@ -51,6 +41,47 @@ async function search(event) {
 
 document.querySelector("#search-form").addEventListener("submit", search);
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+      <div class="forecast-day">
+        <div class="forecast-date">${day}</div>
+        <div class="forecast-icon">🌤️</div>
+        <div class="forecast-temperature">
+            <div>
+                <strong class="forecast-max">11</strong><strong>º</strong>
+            </div>
+            <div>
+                 <span class="forecast-min">9</span>º
+            </div>
+      </div>
+    `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
+function updateForecastWeather(response) {
+  let forecastIconElement = document.querySelector(".forecast-icon");
+  let forecastMaxElement = document.querySelector(".forecast-max");
+  let forecastMinElement = document.querySelector(".forecast-min");
+
+  if (response.data.daily && response.data.daily.length > 0) {
+    forecastIconElement.innerHTML = `<img src="${response.data.daily[0].condition.icon_url}" />`;
+    forecastMaxElement.innerHTML = Math.round(
+      response.data.daily[0].temperature.maximum
+    );
+    forecastMinElement.innerHTML = Math.round(
+      response.data.daily[0].temperature.minimum
+    );
+  }
+}
 /* <div class="forecast-day">
                 <div class="forecast-date">
                     Mon
