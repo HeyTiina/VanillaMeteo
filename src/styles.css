@@ -3,16 +3,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-a {
-  color: #142d4c;
-}
-
 h1 {
   text-align: center;
   font-weight: 900;
   color: #9ccadf;
   font-size: 38px;
 }
+
 h2 {
 
   font-weight: 900;
@@ -59,11 +56,6 @@ main {
   padding: 30px 0;
 }
 
-.current-temperature {
-  font-size: 48px;
-
-}
-
 .current-weather {
   display: flex;
   justify-content: space-evenly;
@@ -84,6 +76,10 @@ main {
 
 .current-details strong {
   color: #ffcebb;
+}
+
+.current-temperature {
+  font-size: 48px;
 }
 
 .current-temperature-icon {
@@ -107,9 +103,17 @@ main {
   color: #9ccadf;
 }
 
+
+
+
+
 footer {
   border-top: 1px solid #b8cadf;
   text-align: center;
   padding-top: 15px;
   color: #27214266;
+}
+
+a {
+  color: #142d4c;
 }
