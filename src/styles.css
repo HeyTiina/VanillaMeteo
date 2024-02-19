@@ -58,7 +58,8 @@ main {
 
 .current-weather {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+
 }
 
 .current-city {
@@ -103,6 +104,22 @@ main {
   color: #9ccadf;
 }
 
+.weekly-forecast {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.forecast-date {
+    color:#27214266 ;
+}
+
+.forecast-temperature {
+    display: flex;
+    justify-content: space-around;
+    color: #ffcebb;
+}
 
 
 
