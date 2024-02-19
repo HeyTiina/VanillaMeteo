@@ -7,18 +7,16 @@ a {
   color: #142d4c;
 }
 
-h2 {
-  text-align: center;
-  font-weight: 900;
-  color: #9ccadf;
- 
-  font-size: 38px;
-}
 h1 {
   text-align: center;
   font-weight: 900;
   color: #9ccadf;
-  padding-left: 30px;
+  font-size: 38px;
+}
+h2 {
+
+  font-weight: 900;
+  color: #9ccadf;
   font-size: 38px;
 }
 
@@ -63,12 +61,12 @@ main {
 
 .current-temperature {
   font-size: 48px;
-  padding-right: 60px;
+
 }
 
 .current-weather {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .current-city {
@@ -81,8 +79,7 @@ main {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: center;
-  padding-left: 30px;
+
 }
 
 .current-details strong {
