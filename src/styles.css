@@ -126,7 +126,7 @@ main {
   margin-bottom: 10px;
 }
 
-.forecast-icon {
+.forecast-icon img {
   font-size: 38px;
   margin-bottom: 5px;
 }
@@ -134,6 +134,8 @@ main {
 .forecast-temperature {
   color: #ffcebb;
   margin-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 footer {
